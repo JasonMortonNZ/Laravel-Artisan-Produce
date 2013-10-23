@@ -1,0 +1,96 @@
+<?php {{namespace}}
+
+class {{name}}Controller extends \BaseController
+{
+    /**
+     * @var {{name}}Repository
+     */
+    protected $repo;
+
+    /**
+     * Constructor
+     *
+     * @param {{name}}Repository $repo
+     */
+    public function __construct({{name}}Repository $repo)
+    {
+        $this->repo = $repo;
+        $this->beforeFilter('csrf', array('on' => 'post'));
+        // $this->beforeFilter('auth');
+    }
+
+    /**
+     * Display listing of entities.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        return View::make('{{nameLower}}.index');
+    }
+
+    /**
+     * Create new entity.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        return View::make('{{nameLower}}.create');
+    }
+
+    /**
+     * Store new entity in storage.
+     *
+     * @return Response
+     */
+    public function store()
+    {
+
+    }
+
+    /**
+     * Display a specific entity.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function show($id)
+    {
+        return View::make('{{nameLower}}.show');
+    }
+
+    /**
+     * Show the form for editing the specific entity.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        return View::make('{{nameLower}}.edit');
+    }
+
+    /**
+     * Update the specific entity in storage.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function update($id)
+    {
+
+    }
+
+    /**
+     * Remove the specific entity from storage.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        $this->repo->destroy($id);
+    }
+
+}

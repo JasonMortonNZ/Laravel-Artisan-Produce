@@ -1,0 +1,100 @@
+<?php {{namespace}}
+
+class {{name}}Repository {
+
+    /**
+     * Model instance
+     *
+     * @var {{name}}
+     */
+	protected $entity;
+
+    /**
+     * Constructor
+     *
+     * @param {{name}} $entity
+     */
+	public function __construct({{name}} $entity)
+	{
+		$this->entity = $entity;
+	}
+
+    /**
+     * Find all
+     *
+     * @return Illuminate\Database\Eloquent\Collection
+     */
+    public function findAll()
+    {
+        return $this->entity->all();
+    }
+
+    /**
+     * Find by ID
+     *
+     * @return Illuminate\Database\Eloquent\Model
+     */
+    public function findById($id)
+    {
+        $entity = $this->entity->where('id', '=', $id)->first();
+
+        if (!$entity  || $entity->id != $id) {
+            throw new NotFoundException("{{name}} not found");
+        }
+
+        return $entity;
+    }
+
+    /**
+     * Instantiate a new instance
+     *
+     * @param  array $data
+     * @return Illuminate\Database\Eloquent\Model
+     */
+    public function instance($data = array())
+    {
+        return $this->entity->newInstance($data);
+    }
+
+    /**
+     * Store new instance in database
+     *
+     * @param  array $data
+     * @return Illuminate\Database\Eloquent\Model
+     */
+    public function store($data)
+    {
+        return $this->entity->create($data);
+    }
+
+    /**
+     * Update instance in the database
+     *
+     * @param  int $id
+     * @param  array $data
+     * @return Illuminate\Database\Eloquent\Model
+     */
+    public function update($id, $data)
+    {
+        $entity = $this->findById($id);
+        $entity->fill($data);
+        $entity->save();
+
+        return $entity;
+    }
+
+    /**
+     * Delete a instance from the database
+     *
+     * @param  int $id
+     * @return boolean
+     */
+    public function destroy($id)
+    {
+        $entity = $this->findById($id);
+        $entity->delete();
+
+        return true;
+    }
+
+}

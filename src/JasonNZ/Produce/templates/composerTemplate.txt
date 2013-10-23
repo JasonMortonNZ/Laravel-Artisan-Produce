@@ -1,0 +1,10 @@
+<?php {{namespace}}
+
+class {{name}}Composer
+{
+
+    public function compose($view)
+    {
+        // View Composer Logic
+    }
+}

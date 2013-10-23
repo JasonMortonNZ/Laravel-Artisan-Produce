@@ -1,0 +1,78 @@
+<?php {{namespace}}
+
+abstract class BaseValidator
+{
+
+    /**
+     * Array to store error messages
+     *
+     * @var Illuminate\Support\MessageBag
+     */
+    protected $errors;
+
+    /**
+     * Array of attributes to validate
+     *
+     * @var array
+     */
+    protected $attributes;
+
+    /**
+     * Constructor
+     *
+     * @param array $attributes
+     */
+    public function __construct(array $attributes = null)
+    {
+        if ($attributes != null) {
+            $this->attributes = $attributes;
+        }
+    }
+
+    /**
+     * Validate attributes and check to see if validation passes.
+     *
+     * @return bool
+     */
+    public function passes()
+    {
+        $validation = \Validator::make($this->attributes, $this->rules);
+
+        if ($validation->passes()) {
+            return true;
+        } else {
+            $this->errors = $validation->messages();
+            return false;
+        }
+    }
+
+    /**
+     * Get validation errors
+     *
+     * @return Illuminate\Support\MessageBag
+     */
+    public function getErrors()
+    {
+        return $this->errors;
+    }
+
+    /**
+     * Get attributes to be validated
+     *
+     * @return array
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * Set attibutes to validate
+     *
+     * @param array $attributes
+     */
+    public function setAttributes(array $attributes)
+    {
+        $this->attributes = $attributes;
+    }
+}

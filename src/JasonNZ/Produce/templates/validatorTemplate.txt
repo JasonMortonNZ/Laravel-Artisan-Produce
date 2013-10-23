@@ -1,0 +1,12 @@
+<?php {{namespace}}
+
+class {{name}}Validator extends BaseValidator
+{
+
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public $rules = array();
+}

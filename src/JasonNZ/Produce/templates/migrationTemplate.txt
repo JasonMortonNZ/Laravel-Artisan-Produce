@@ -1,0 +1,31 @@
+<?php {{namespace}}
+
+use Illuminate\Database\Migrations\Migration;
+
+class Create{{tableNameUpper}}Table extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('{{tableNameLower}}', function($table) {
+           $table->increments('id');
+           
+           $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('{{tableNameLower}}');
+    }
+
+}
