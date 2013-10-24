@@ -28,17 +28,17 @@ This package can create the following using only ONE command:
 ```javascript
 {
     "require": {
-        "jason-nz/produce": "@1.0.*"
+        "jason-nz/produce": "1.0.*"
     }
 }
 ```
 
-2) Update your packages with `composer update` or `composer install`.
+2) Update your packages with `composer update`.
 
-3) Next, register the `JasonNZ\Produce\ProduceServiceProdiver` in the prodivers array located in app/config/app.php:
+3) Next, register the `JasonNZ\Produce\ProduceServiceProvider` in the prodivers array located in app/config/app.php:
 
 ```php
-'JasonNZ\Produce\ProduceServiceProdiver'
+'JasonNZ\Produce\ProduceServiceProvider'
 ```
 
 4) Finally, publish the config file by running the following artisan command in the terminal:
@@ -54,7 +54,7 @@ Adjust the configuration setting located in `app/config/packages/jason-nz/produc
 Then simply run the artisan command:
 
 ```
-$ php artisan produce <NAME>
+$ php artisan produce NAME
 ```
 
-Note: Replace <NAME> with the singular name of the resource/s you want to create.
+Note: Replace NAME with the singular name of the resource/s you want to create.
