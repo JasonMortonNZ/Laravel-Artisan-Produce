@@ -1,10 +1,16 @@
 {
     "name": "jason-nz/produce",
-    "description": "",
+    "description": "A highly configurable Laravel 4 resource generator/producer.",
+    "tags": [
+        "laravel",
+        "laravel-4",
+        "php"
+    ],
     "authors": [
         {
             "name": "jason-nz",
-            "email": "jasonlmorton@gmail.com"
+            "email": "jasonlmorton@gmail.com",
+            "url": "https://twitter.com/jasonmortonnz"
         }
     ],
     "require": {
