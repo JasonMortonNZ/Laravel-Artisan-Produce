@@ -3,16 +3,17 @@
 A highly configurable Laravel 4 resource producer/generator.
 
 This package can create the following using only ONE command:
-    - Controllers
-    - Models
-    - Views
-    - View Composers
-    - Repositories
-    - Validators
-    - Migrations
-    - Seeds
-    - Tests
-    - ... and soon to be more! (Events, Service etc)
+
+* Controllers
+* Models
+* Views
+* View Composers
+* Repositories
+* Validators
+* Migrations
+* Seeds
+* Tests
+* ... and soon to be more! (Events, Service etc)
 
 #### Author
 
