@@ -1,8 +1,16 @@
 ## Laravel 4 - Artisan Produce
 
-A highly configurable Laravel 4 resource producer/generator.
+A highly configurable Laravel 4 resource producer /generator.
 
-This package can create the following using only ONE command:
+- [About](#about)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Video Example](#video)
+- [Author](#author)
+
+
+#### About
+This package can create the following using only ONE command. E.g `$ php artisan produce Post` :
 
 * Controllers
 * Models
@@ -21,7 +29,7 @@ This package can create the following using only ONE command:
 - [Issues](https://github.com/JasonMortonNZ/Laravel-Artisan-Produce/issues)
 
 
-### Installation
+#### Installation
 
 1) Add `jason-nz/produce` as a requirement to composer.json:
 
@@ -47,7 +55,7 @@ This package can create the following using only ONE command:
 $ php artisan config:publish jason-nz/produce
 ```
 
-### Usage
+#### Usage
 
 Adjust the configuration setting located in `app/config/packages/jason-nz/product/config.php` to your liking.
 
@@ -58,3 +66,6 @@ $ php artisan produce NAME
 ```
 
 Note: Replace NAME with the singular name of the resource/s you want to create.
+
+#### Video
+[![ScreenShot](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](http://www.youtube.com/watch?v=0XfUnKc0ycU)
