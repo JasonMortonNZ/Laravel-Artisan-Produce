@@ -68,4 +68,4 @@ $ php artisan produce NAME
 Note: Replace NAME with the singular name of the resource/s you want to create.
 
 #### Video
-[![ScreenShot](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](http://www.youtube.com/watch?v=0XfUnKc0ycU)
+[![ScreenShot](https://raw.github.com/JasonMortonNZ/Laravel-Artisan-Produce/master/produce-video.png)](http://www.youtube.com/watch?v=0XfUnKc0ycU)
