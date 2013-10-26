@@ -1,5 +1,7 @@
 <?php {{namespace}}
 
+{{useRepoNamespace}}
+
 class {{name}}Controller extends \BaseController
 {
     /**

@@ -49,6 +49,7 @@ class ControllerGenerator extends BaseGenerator
             'nameLower' => strtolower($this->singularName)
         );
         $this->namespace != "" ? $options['namespace'] = 'namespace ' . $this->namespace . ';' : $options['namespace'] = '';
+        $this->config->get('produce::repositories_namespace') != '' ? $options['useRepoNamespace'] = 'use '.$this->config->get('produce::repositories_namespace').'\\'.ucfirst($this->singularName).'Repository;' : $options['useRepoNamespace'] = '';
         $data = $this->prepareData($options, 'controller');
 
         if (! $this->filesystem->exists($path)) {
