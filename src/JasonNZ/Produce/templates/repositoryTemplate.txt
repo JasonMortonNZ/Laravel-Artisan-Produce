@@ -1,5 +1,7 @@
 <?php {{namespace}}
 
+{{useModelNamespace}}
+
 class {{name}}Repository {
 
     /**

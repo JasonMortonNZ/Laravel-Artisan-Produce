@@ -45,9 +45,10 @@ class RepositoryGenerator extends BaseGenerator
     {
         $path = $this->config->get('produce::repositories_path') . "/" . ucfirst($this->singularName) . 'Repository.php';
         $options = array(
-            'name' => ucfirst($this->singularName)
+            'name' => ucfirst($this->singularName),
         );
         $this->namespace != "" ? $options['namespace'] = 'namespace ' . $this->namespace . ';' : $options['namespace'] = '';
+        $this->config->get('produce::models_namespace') != '' ? $options['useModelNamespace'] = 'use '.$this->config->get('produce::models_namespace').'\\'.ucfirst($this->singularName).';' : $options['useModelNamespace'] = '';
         $data = $this->prepareData($options, 'repository');
 
         if (! $this->filesystem->exists($path)) {
