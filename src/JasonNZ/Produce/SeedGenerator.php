@@ -25,7 +25,7 @@ class SeedGenerator extends BaseGenerator
      */
     public function generate($name)
     {
-        $this->name = $name;
+        $this->setNames($name);
         $this->namespace = $this->config->get('produce::seeds_namespace');
 
         if ($this->shouldCreate($this->config->get('produce::seeds'))) {
@@ -38,18 +38,17 @@ class SeedGenerator extends BaseGenerator
     }
 
     /**
-     * Create migration file.
+     * Create seed file.
      *
      * @return void
      */
     protected function createSeedFile()
     {
-        $fileName = ucfirst(Pluralizer::plural($this->name));
-        $path = $this->config->get('produce::seeds_path') . "/" . $fileName . 'TableSeeder.php';
+        $path = $this->config->get('produce::seeds_path') . "/" . ucfirst($this->pluralName) . 'TableSeeder.php';
         $options = array(
-            'name' => ucfirst($this->name),
-            'tableNameLower' => lcfirst(Pluralizer::plural($this->name)),
-            'tableNameUpper' => ucfirst(Pluralizer::plural($this->name))
+            'name' => ucfirst($this->singularName),
+            'tableNameLower' => strtolower($this->pluralName),
+            'tableNameUpper' => ucfirst($this->pluralName)
         );
         $this->namespace != "" ? $options['namespace'] = 'namespace ' . $this->namespace . ';' : $options['namespace'] = '';
         $data = $this->prepareData($options, 'seed');

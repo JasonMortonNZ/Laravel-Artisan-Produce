@@ -1,13 +1,29 @@
 <?php namespace JasonNZ\Produce;
 
+use Illuminate\Support\Pluralizer;
+
 abstract class BaseGenerator
 {
-        /**
+    /**
      * Class & file name
      *
      * @var string
      */
     protected $name;
+
+    /**
+     * Singular resource name
+     *
+     * @var string
+     */
+    protected $singularName;
+
+    /**
+     * Plural resource name
+     *
+     * @var string
+     */
+    protected $pluralName;
 
     /**
      * Namespace
@@ -29,6 +45,18 @@ abstract class BaseGenerator
      * @var Filesystem
      */
     protected $filesystem;
+
+    /**
+     * Set names ($name, $singularName, $pluralName)
+     *
+     * @param string $name
+     */
+    protected function setNames($name)
+    {
+        $this->name = strtolower($name);
+        $this->singularName = Pluralizer::singular($this->name);
+        $this->pluralName = Pluralizer::plural($this->name);
+    }
 
     /**
      * Determine if resouce should be generated, from config entry.

@@ -25,7 +25,7 @@ class TestGenerator extends BaseGenerator
      */
     public function generate($name)
     {
-        $this->name = $name;
+        $this->setNames($name);
 
         if ($this->shouldCreate($this->config->get('produce::tests'))) {
             $path = $this->config->get('produce::tests_path');
@@ -43,9 +43,9 @@ class TestGenerator extends BaseGenerator
      */
     protected function createTestFiles()
     {
-        $path = $this->config->get('produce::tests_path') . '/' . ucfirst($this->name) . 'Test.php';
+        $path = $this->config->get('produce::tests_path') . '/' . ucfirst($this->singularName) . 'Test.php';
         $options = array(
-            'name' => ucfirst($this->name)
+            'name' => ucfirst($this->singularName)
         );
         $this->namespace != "" ? $options['namespace'] = 'namespace '.$this->namespace.';' : $options['namespace'] = '';
         $data = $this->prepareData($options, 'test');

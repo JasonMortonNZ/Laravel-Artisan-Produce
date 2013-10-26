@@ -31,7 +31,7 @@ class ViewGenerator extends BaseGenerator
      */
     public function generate($name)
     {
-        $this->name = $name;
+        $this->setNames($name);
         $this->extends = $this->config->get('produce::views_extend');
 
         if ($this->shouldCreate($this->config->get('produce::views'))) {
@@ -50,7 +50,7 @@ class ViewGenerator extends BaseGenerator
      */
     protected function createViewFiles()
     {
-        $folderName = $this->config->get('produce::views_path') . '/' . strtolower($this->name);
+        $folderName = $this->config->get('produce::views_path') . '/' . strtolower($this->singularName);
         $fileNames = array('index', 'show', 'create', 'edit');
 
         if (! $this->folderExists($folderName)) {

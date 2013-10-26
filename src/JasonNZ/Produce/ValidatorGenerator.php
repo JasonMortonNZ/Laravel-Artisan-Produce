@@ -24,7 +24,7 @@ class ValidatorGenerator extends BaseGenerator
      */
     public function generate($name)
     {
-        $this->name = ucfirst($name);
+        $this->setNames($name);
         $this->namespace = $this->config->get('produce::validators_namespace');
 
         if ($this->shouldCreate($this->config->get('produce::validators'))) {
@@ -44,9 +44,9 @@ class ValidatorGenerator extends BaseGenerator
      */
     protected function createValidatorFile()
     {
-        $path = $this->config->get('produce::validators_path') . "/" . ucfirst($this->name) . 'Validator.php';
+        $path = $this->config->get('produce::validators_path') . "/" . ucfirst($this->singularName) . 'Validator.php';
         $options = array(
-            'name' => ucfirst($this->name)
+            'name' => ucfirst($this->singularName)
         );
         $this->namespace != "" ? $options['namespace'] = 'namespace '.$this->namespace.';' : $options['namespace'] = '';
         $data = $this->prepareData($options, 'validator');

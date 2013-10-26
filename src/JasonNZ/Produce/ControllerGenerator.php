@@ -24,7 +24,7 @@ class ControllerGenerator extends BaseGenerator
      */
     public function generate($name)
     {
-        $this->name = $name;
+        $this->setNames($name);
         $this->namespace = $this->config->get('produce::controllers_namespace');
 
         if ($this->shouldCreate($this->config->get('produce::controllers'))) {
@@ -43,10 +43,10 @@ class ControllerGenerator extends BaseGenerator
      */
     protected function createControllerFile()
     {
-        $path = $this->config->get('produce::controllers_path') . "/" . ucfirst($this->name) . 'Controller.php';
+        $path = $this->config->get('produce::controllers_path') . "/" . ucfirst($this->singularName) . 'Controller.php';
         $options = array(
-            'name' => ucfirst($this->name),
-            'nameLower' => strtolower($this->name)
+            'name' => ucfirst($this->singularName),
+            'nameLower' => strtolower($this->singularName)
         );
         $this->namespace != "" ? $options['namespace'] = 'namespace ' . $this->namespace . ';' : $options['namespace'] = '';
         $data = $this->prepareData($options, 'controller');

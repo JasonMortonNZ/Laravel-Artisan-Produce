@@ -25,7 +25,7 @@ class MigrationGenerator extends BaseGenerator
      */
     public function generate($name)
     {
-        $this->name = $name;
+        $this->setNames($name);
         $this->namespace = $this->config->get('produce::migrations_namespace');
 
         if ($this->shouldCreate($this->config->get('produce::migrations'))) {
@@ -44,12 +44,11 @@ class MigrationGenerator extends BaseGenerator
      */
     protected function createMigrationFile()
     {
-        $fileName = $this->createMigrationFileName($this->name);
+        $fileName = $this->createMigrationFileName($this->pluralName);
         $path = $this->config->get('produce::migrations_path') . "/" . $fileName . '.php';
         $options = array(
-            'name' => ucfirst($this->name),
-            'tableNameLower' => lcfirst(Pluralizer::plural($this->name)),
-            'tableNameUpper' => ucfirst(Pluralizer::plural($this->name))
+            'tableNameLower' => strtolower($this->pluralName),
+            'tableNameUpper' => ucfirst($this->pluralName)
         );
         $this->namespace != "" ? $options['namespace'] = 'namespace ' . $this->namespace . ';' : $options['namespace'] = '';
         $data = $this->prepareData($options, 'migration');

@@ -24,7 +24,7 @@ class RepositoryGenerator extends BaseGenerator
      */
     public function generate($name)
     {
-        $this->name = $name;
+        $this->setNames($name);
         $this->namespace = $this->config->get('produce::repositories_namespace');
 
         if ($this->shouldCreate($this->config->get('produce::repositories'))) {
@@ -43,9 +43,9 @@ class RepositoryGenerator extends BaseGenerator
      */
     protected function createRepositoryFile()
     {
-        $path = $this->config->get('produce::repositories_path') . "/" . $this->name . 'Repository.php';
+        $path = $this->config->get('produce::repositories_path') . "/" . ucfirst($this->singularName) . 'Repository.php';
         $options = array(
-            'name' => ucfirst($this->name)
+            'name' => ucfirst($this->singularName)
         );
         $this->namespace != "" ? $options['namespace'] = 'namespace ' . $this->namespace . ';' : $options['namespace'] = '';
         $data = $this->prepareData($options, 'repository');

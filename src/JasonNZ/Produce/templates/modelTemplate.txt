@@ -7,7 +7,7 @@ class {{name}} extends \Eloquent {
      *
      * @var string
      */
-    protected $table = '';
+    protected $table = '{{pluralNameLower}}';
 
     /**
      * Indicates if the model should be timestamped.

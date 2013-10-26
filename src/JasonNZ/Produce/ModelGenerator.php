@@ -24,7 +24,7 @@ class ModelGenerator extends BaseGenerator
      */
     public function generate($name)
     {
-        $this->name = ucfirst($name);
+        $this->setNames($name);
         $this->namespace = $this->config->get('produce::models_namespace');
 
         if ($this->shouldCreate($this->config->get('produce::models'))) {
@@ -43,9 +43,10 @@ class ModelGenerator extends BaseGenerator
      */
     protected function createModelFile()
     {
-        $path = $this->config->get('produce::models_path') . "/" . $this->name . '.php';
+        $path = $this->config->get('produce::models_path') . "/" . ucfirst($this->singularName) . '.php';
         $options = array(
-            'name' => ucfirst($this->name)
+            'name' => ucfirst($this->singularName),
+            'pluralNameLower' => strtolower($this->pluralName)
         );
         $this->namespace != "" ? $options['namespace'] = 'namespace ' . $this->namespace . ';' : $options['namespace'] = '';
         $data = $this->prepareData($options, 'model');

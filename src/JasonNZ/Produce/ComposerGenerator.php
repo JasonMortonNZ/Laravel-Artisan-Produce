@@ -24,7 +24,7 @@ class ComposerGenerator extends BaseGenerator
      */
     public function generate($name)
     {
-        $this->name = $name;
+        $this->setNames($name);
         $this->namespace = $this->config->get('produce::composers_namespace');
 
         if ($this->shouldCreate($this->config->get('produce::composers'))) {
@@ -45,9 +45,9 @@ class ComposerGenerator extends BaseGenerator
      */
     protected function createComposerFile()
     {
-        $path = $this->config->get('produce::composers_path') . "/" . ucfirst($this->name) . 'Composer.php';
+        $path = $this->config->get('produce::composers_path') . "/" . ucfirst($this->singularName) . 'Composer.php';
         $options = array(
-            'name' => ucfirst($this->name)
+            'name' => ucfirst($this->singularName)
         );
         $this->namespace != "" ? $options['namespace'] = 'namespace '.$this->namespace.';' : $options['namespace'] = '';
         $data = $this->prepareData($options, 'composer');
@@ -97,8 +97,8 @@ class ComposerGenerator extends BaseGenerator
     public function updateComposersInitFile()
     {
         $path = $this->config->get('produce::composers_path').'/composers.php';
-        $composerNamespace = $this->config->get('produce::composers_namespace').'\\'.ucfirst($this->name).'Composer';
-        $viewName = strtolower($this->name).'.index';
+        $composerNamespace = $this->config->get('produce::composers_namespace').'\\'.ucfirst($this->singularName).'Composer';
+        $viewName = $this->singularName.'.index';
         $data = "View::composer('{$viewName}', '{$composerNamespace}');\n";
 
         $this->filesystem->append($path, $data);
