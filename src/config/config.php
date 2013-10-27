@@ -28,8 +28,8 @@ return array(
      * | Which namespace should models be given? (empty|string)
      */
     'models' => true,
-    'models_path' => app_path().'/acme/models',
-    'models_namespace' => 'Acme\Models',
+    'models_path' => app_path().'/models',
+    'models_namespace' => '',
 
     /*=====================================================
      * Controllers Configuration Settings
@@ -39,8 +39,8 @@ return array(
      * | Which namespace should controllers be given? (empty|string)
      */
     'controllers' => true,
-    'controllers_path' => app_path().'/acme/controllers',
-    'controllers_namespace' => 'Acme\Controllers',
+    'controllers_path' => app_path().'/controllers',
+    'controllers_namespace' => '',
 
     /*=====================================================
      * Views Configuration Settings
@@ -50,7 +50,7 @@ return array(
      * | Which master views should views extends? (empty|string)
      */
     'views' => true,
-    'views_path' => app_path().'/acme/views',
+    'views_path' => app_path().'/views',
     'views_extend' => 'master',
 
     /*=====================================================
@@ -72,7 +72,7 @@ return array(
      * | Which namespace should migrations be given? (empty|string)
      */
     'migrations' => true,
-    'migrations_path' => app_path().'/acme/database/migrations',
+    'migrations_path' => app_path().'/database/migrations',
     'migrations_namespace' => '',
 
     /*=====================================================
@@ -83,7 +83,7 @@ return array(
      * | Which namespace should seeds be given? (empty|string)
      */
     'seeds' => true,
-    'seeds_path' => app_path().'/acme/database/seeds',
+    'seeds_path' => app_path().'/database/seeds',
     'seeds_namespace' => '',
 
     /*=====================================================
@@ -105,7 +105,7 @@ return array(
      * | Which namespace should tests be given? (empty|string)
      */
     'tests' => true,
-    'tests_path' => app_path().'/acme/tests',
+    'tests_path' => app_path().'/tests',
     'tests_namespace' => 'Acme\Tests',
 
 );
