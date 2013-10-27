@@ -1,6 +1,6 @@
 ## Laravel 4 - Artisan Produce
 
-A highly configurable Laravel 4 resource producer /generator.
+A highly configurable Laravel 4 resource producer / generator for rapidly scaffolding applications.
 
 - [About](#about)
 - [Installation](#installation)
