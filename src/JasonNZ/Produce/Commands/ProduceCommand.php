@@ -20,7 +20,7 @@ class ProduceCommand extends Command {
 	 *
 	 * @var string
 	 */
-	protected $description = 'Produce a set of resources.';
+	protected $description = 'Produce all resources based on your requirements';
 
 	/**
 	 * Execute the console command
@@ -30,7 +30,7 @@ class ProduceCommand extends Command {
 	public function fire()
 	{
 		$generator = new Generator($this->argument('name'));
-		return $this->info($generator->generate());
+		return $generator->generateAll();
 	}
 
 	/**
@@ -42,18 +42,6 @@ class ProduceCommand extends Command {
     {
         return array(
             array('name', InputArgument::REQUIRED, 'Name of resource to generate.')
-        );
-    }
-
-    /**
-     * Get the console command options.
-     *
-     * @return array
-     */
-    protected function getOptions()
-    {
-        return array(
-            array('namespace', null, InputOption::VALUE_OPTIONAL, 'Name of the resource to generate.')
         );
     }
 

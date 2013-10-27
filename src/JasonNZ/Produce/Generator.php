@@ -14,7 +14,7 @@ class Generator
      *
      * @return void
      */
-    public function generate()
+    public function generateAll()
     {
         $this->generateRepository();
         $this->generateModel();
@@ -32,7 +32,7 @@ class Generator
      *
      * @return void
      */
-    protected function generateRepository()
+    public function generateRepository()
     {
         $repositoryGenerator = \App::make('RepositoryGenerator');
 
@@ -44,7 +44,7 @@ class Generator
      *
      * @return void
      */
-    protected function generateModel()
+    public function generateModel()
     {
         $modelGenerator = \App::make('ModelGenerator');
 
@@ -56,7 +56,7 @@ class Generator
      *
      * @return void
      */
-    protected function generateMigration()
+    public function generateMigration()
     {
         $migrationGenerator = \App::make('MigrationGenerator');
 
@@ -68,7 +68,7 @@ class Generator
      *
      * @return void
      */
-    protected function generateSeed()
+    public function generateSeed()
     {
         $seedGenerator = \App::make('SeedGenerator');
 
@@ -80,7 +80,7 @@ class Generator
      *
      * @return void
      */
-    protected function generateViews()
+    public function generateViews()
     {
         $viewsGenerator = \App::make('ViewGenerator');
 
@@ -92,7 +92,7 @@ class Generator
      *
      * @return void
      */
-    protected function generateController()
+    public function generateController()
     {
         $controllerGenerator = \App::make('ControllerGenerator');
 
@@ -104,7 +104,7 @@ class Generator
      *
      * @return void
      */
-    protected function generateComposer()
+    public function generateComposer()
     {
         $composerGenerator = \App::make('ComposerGenerator');
 
@@ -116,7 +116,7 @@ class Generator
      *
      * @return void
      */
-    protected function generateValidator()
+    public function generateValidator()
     {
         $validatorGenerator = \App::make('ValidatorGenerator');
 
@@ -128,7 +128,7 @@ class Generator
      *
      * @return void
      */
-    protected function generateTests()
+    public function generateTests()
     {
         $testsGenerator = \App::make('TestGenerator');
 
